@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, Typography } from '@mui/material';
+import { Avatar, Box, Card, CircularProgress, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -86,7 +86,7 @@ function App() {
                 </Card>
             ))
           :
-            <Typography>C'est pas encore là</Typography>
+            <CircularProgress size={300} />
          }
           
         </Box>
