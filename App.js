@@ -4,21 +4,7 @@ import './App.css';
 
 function App() {
   const [ isLoaded, setIsLoaded ] = useState(false);
-  const [ items, setItems ] = useState<Items[]>([]);
-
-  interface Items {
-    films: []
-    shortFilms: []
-    tvShows: []
-    videoGames: []
-    parkAttractions: []
-    allies: []
-    enemies: []
-    _id: number
-    name: string
-    imageUrl: string
-    url: string
-  };
+  const [ items, setItems ] = useState([]);
 
   useEffect(() => {
     fetch('https://api.disneyapi.dev/characters')
@@ -43,6 +29,7 @@ function App() {
       <Box sx={{
         width: '100%',
         minHeight: '100vh',
+        // height: '100%',
         background: 'radial-gradient(circle, rgba(55,45,176,1) 0%, rgba(24,22,48,1) 99%)',
         fontFamily: 'Solitreo'
       }} >
@@ -71,7 +58,7 @@ function App() {
                     backgroundColor: 'secondary.main',
                     transform: 'scale(1.03)'
                     },
-                }} key={item._id}>
+                }}>
                     <Avatar src={item.imageUrl} sx={{
                     width: '8em',
                     height: '8em',
