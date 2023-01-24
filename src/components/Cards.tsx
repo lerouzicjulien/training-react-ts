@@ -7,7 +7,6 @@ const Cards = () => {
 
   const { items, isLoaded } = useContext(ItemsContext)
 
-
     return (
         <Box className='container' sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center', padding:2}} >
         {

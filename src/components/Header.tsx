@@ -1,4 +1,4 @@
-import { AppBar, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const Header = ({theme, setTheme }) => {
     

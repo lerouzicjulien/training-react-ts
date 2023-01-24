@@ -1,14 +1,28 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, FC, PropsWithChildren, useEffect, useState } from "react";
 
+export interface Items {
+  films: []
+  shortFilms: []
+  tvShows: []
+  videoGames: []
+  parkAttractions: []
+  allies: []
+  enemies: []
+  _id: number
+  name: string
+  imageUrl: string
+  url: string
+};
 
-export const ItemsContext = createContext({
+export const ItemsContext = createContext<{
+    isLoaded: boolean,
+    items: string[] | Items[]
+}>({
     isLoaded: false,
-    setIsLoaded: () => {},
-    items: [],
-    setItems: () => {}
+    items: []
 });
 
-const ItemsContextProvider = ({ children }) => {
+const ItemsContextProvider : FC<PropsWithChildren>= ({ children }) => {
     const [ isLoaded, setIsLoaded ] = useState(false);
     const [ items, setItems ] = useState([]);
 
@@ -25,13 +39,11 @@ const ItemsContextProvider = ({ children }) => {
             })
       }, [])
 
-    const value = {
-        isLoaded,
-        items,
-    }
-    
     return (
-        <ItemsContext.Provider value={value}>
+        <ItemsContext.Provider value={{
+          items,
+          isLoaded
+        }}>
             {children}
         </ItemsContext.Provider>
     )
